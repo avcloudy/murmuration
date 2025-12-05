@@ -2,3 +2,5 @@
 *.pbxproj
 *.xcbk*\
 /xcdebugger
+/.build
+
