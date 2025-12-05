@@ -2,7 +2,7 @@
 *.pbxproj
 *.xcbk*\
 /xcdebugger
-/.build
+/torrent/.build
 torrent.xcodeproj
 xcuserdata/
 DerivedData/
