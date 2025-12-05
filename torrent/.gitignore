@@ -6,8 +6,7 @@
 torrent.xcodeproj
 xcuserdata/
 DerivedData/
-.swiftpm/configuration/registries.json
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.swiftpm/*
 .netrc
 torrent.xcodeproj
 
