@@ -1,7 +1,7 @@
 import Foundation
 
-enum funcodeError: Error {
-    case badFuncodeStart(index: Int)
+enum bencodeError: Error {
+    case badBencodeStart(index: Int)
     case nonASCII
     case streamEmpty
     case malformedString(index: Int)
@@ -14,16 +14,9 @@ enum funcodeError: Error {
     case dictKeyNotStringWalker
 }
 
-public enum funcode: Hashable {
-    case string(String)
-    case int(Int)
-    indirect case list([funcode])
-    indirect case dict([funcode: funcode])
-}
-
-public func decode(data: String) throws -> funcode? {
+public func decode(data: String) throws -> bencode? {
     guard let asciiData = data.data(using: .ascii) else {
-        throw funcodeError.nonASCII
+        throw bencodeError.nonASCII
     }
     let stream = asciiData.map { Character(UnicodeScalar($0)) }
     
@@ -31,12 +24,12 @@ public func decode(data: String) throws -> funcode? {
     return root
 }
 
-private func dechunk(stream: [Character], index: Int) throws -> (funcode?, Int) {
+private func dechunk(stream: [Character], index: Int) throws -> (bencode?, Int) {
     let inNumberRange: ClosedRange<Character> = "0"..."9"
     // check we aren't at the end of the array, and if we have reached the second last entry and
     // are callign dechunk, must be malformed stream (effectively empty)
     guard index < stream.count else {
-        throw funcodeError.streamEmpty
+        throw bencodeError.streamEmpty
     }
     let nextCharacter = stream[index]
     
@@ -50,11 +43,11 @@ private func dechunk(stream: [Character], index: Int) throws -> (funcode?, Int) 
     case "d":
         return try decodeDict(stream: stream, index: index)
     default:
-        throw funcodeError.badFuncodeStart(index: index)
+        throw bencodeError.badBencodeStart(index: index)
     }
 }
 
-private func decodeString(stream: [Character], index: Int) throws -> (funcode?, Int) {
+private func decodeString(stream: [Character], index: Int) throws -> (bencode?, Int) {
     // grab index to mutate
     var index = index
     // bencode string starts with an int, length of the string, then a colon, then the string
@@ -63,19 +56,19 @@ private func decodeString(stream: [Character], index: Int) throws -> (funcode?, 
     var stringLength = ""
     
     guard index < stream.count else {
-        throw funcodeError.streamEmpty
+        throw bencodeError.streamEmpty
     }
     while stream[index].isNumber {
         stringLength.append(stream[index])
         index += 1
     }
     guard stream[index] == ":" else {
-        throw funcodeError.malformedString(index: index)
+        throw bencodeError.malformedString(index: index)
     }
     index += 1
     // check stringLength can actually cast to Int
     guard let length = Int(stringLength) else {
-        throw funcodeError.malformedStringLength(index: index)
+        throw bencodeError.malformedStringLength(index: index)
     }
     // make string of characters and advance the index that length
     let stringChars = stream[index..<index+length]
@@ -83,17 +76,17 @@ private func decodeString(stream: [Character], index: Int) throws -> (funcode?, 
     return (.string(String(stringChars)) ,index)
 }
 
-private func decodeInt(stream: [Character], index: Int) throws -> (funcode?, Int) {
+private func decodeInt(stream: [Character], index: Int) throws -> (bencode?, Int) {
     var index = index
     
     guard index < stream.count else {
-        throw funcodeError.streamEmpty
+        throw bencodeError.streamEmpty
     }
     // bencode int starts with an i, contains the number, then ends with an e eg:
     // i45e
     
     guard stream[index] == "i" else {
-        throw funcodeError.malformedInt(index: index)
+        throw bencodeError.malformedInt(index: index)
     }
     index += 1
     
@@ -103,34 +96,38 @@ private func decodeInt(stream: [Character], index: Int) throws -> (funcode?, Int
         index += 1
     }
     guard let int = Int(intChars) else {
-        throw funcodeError.malformedInt(index: index)
+        throw bencodeError.malformedInt(index: index)
     }
     guard stream[index] == "e" else {
-        throw funcodeError.intMissingEnd(index: index)
+        throw bencodeError.intMissingEnd(index: index)
     }
     index += 1
     
     return (.int(int), index)
 }
 
-private func decodeList(stream: [Character], index: Int) throws -> (funcode?, Int) {
+private func decodeList(stream: [Character], index: Int) throws -> (bencode?, Int) {
     var index = index
     
     guard index < stream.count else {
-        throw funcodeError.streamEmpty
+        throw bencodeError.streamEmpty
     }
     // bencode list starts with an l, contains any number of bencode string, int, list or dict
     // objects (including none) and ends with an e. No seperators.
     
     guard stream[index] == "l" else {
-        throw funcodeError.malformedList(index: index)
+        throw bencodeError.malformedList(index: index)
     }
     index += 1
-    var list: [funcode] = []
+    // check next character is not e, if it is, return an empty bencode list
+    guard stream[index] != "e" else {
+        return (.list([]), index)
+    }
+    var list: [bencode] = []
     while stream[index] != "e" {
-        let (funcodeObject, newIndex) = try dechunk(stream: stream, index: index)
+        let (bencodeObject, newIndex) = try dechunk(stream: stream, index: index)
         index = newIndex
-        if let value = funcodeObject {
+        if let value = bencodeObject {
             list.append(value)
         }
     }
@@ -138,39 +135,46 @@ private func decodeList(stream: [Character], index: Int) throws -> (funcode?, In
     return (.list(list), index)
 }
 
-private func decodeDict(stream: [Character], index: Int) throws -> (funcode?, Int) {
+private func decodeDict(stream: [Character], index: Int) throws -> (bencode?, Int) {
     var index = index
     
     guard index < stream.count else {
-        throw funcodeError.streamEmpty
+        throw bencodeError.streamEmpty
     }
     // bencode dict starts with a d, the key is the next bencode object, which must be a string
     // and the value is the next bencode object, which may be any bencode object
     guard stream[index] == "d" else {
-        throw funcodeError.malformedDict(index: index)
+        throw bencodeError.malformedDict(index: index)
     }
     index += 1
-    var dict: [funcode: funcode] = [:]
+    var dict: [bencode: bencode] = [:]
+    guard stream[index] != "e" else {
+        return (.dict(dict), index)
+    }
     while stream[index] != "e" {
         let (key, newIndex) = try dechunk(stream: stream, index: index)
         guard case .string = key else {
-            throw funcodeError.dictKeyNotString(index: index)
+            throw bencodeError.dictKeyNotString(index: index)
+        }
+        guard newIndex < stream.count else {
+            throw bencodeError.streamEmpty
         }
         index = newIndex
         let (value, secondNewIndex) = try dechunk(stream: stream, index: index)
         dict[key ?? .string("")] = value ?? .string("")
-//        if let keyObject = key  {
-//            dict[keyObject] = value
-//            print("\(keyObject), \(value, default: "")")
-//        }
+        if let keyObject = key  {
+            dict[keyObject] = value
+        }
+        guard secondNewIndex < stream.count else {
+            throw bencodeError.streamEmpty
+        }
         index = secondNewIndex
-        
     }
     index += 1
     return (.dict(dict), index)
 }
 
-public func walker(bencodedObject: funcode) throws -> Any {
+public func walker(bencodedObject: bencode) throws -> Any {
     switch bencodedObject {
     case let .string(s):
         return s
@@ -186,7 +190,7 @@ public func walker(bencodedObject: funcode) throws -> Any {
         var dict: [String: Any] = [:]
         for (key, val) in d {
             guard case let .string(keyString) = key else {
-                throw funcodeError.dictKeyNotStringWalker
+                throw bencodeError.dictKeyNotStringWalker
             }
             dict[keyString] = try walker(bencodedObject: val)
         }
