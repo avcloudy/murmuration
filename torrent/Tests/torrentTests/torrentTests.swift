@@ -54,6 +54,16 @@ class BencodeDecodeTests {
     }
     
     @Test
+    func decodeDeepRecursion() {
+        let bencodedList = "lllll4:deep9:primitive9:recursioneeeee"
+        let decoded = try? decode(data: bencodedList)
+        guard case let .list(value) = decoded else {
+            fatalError("Expected a list")
+        }
+        #expect(value == [ .list([ .list([ .list([ .list([.string("deep"), .string("primitive"), .string("recursion")])])])]) ] )
+    }
+    
+    @Test
     func decodeDict() {
         let bencodedDict = "d4:spam4:eggs5:monty4:hall4:fuck6:horsese"
         let decoded = try? decode(data: bencodedDict)
@@ -104,6 +114,7 @@ class BencodeEncodeTests {
         #expect(encodedList == "l7:surface5:level4:listl6:nested4:listee")
     }
     
+    // TODO: dictionary encoder has to be sorted - keys ordered alphabetically in the bencode result
     @Test
     func encodeDict() {
         let testDict: [String: Any] = ["surface": "dictionary", "nested": ["dictionary": "here"]]
@@ -112,4 +123,4 @@ class BencodeEncodeTests {
         }
         #expect(encodedDict == "d7:surface10:dictionary6:nestedd10:dictionary4:hereee")
     }
-}
+} d6:nestedd10:dictionary4:heree7:surface10:dictionarye
