@@ -2,12 +2,11 @@
 *.pbxproj
 *.xcbk*\
 /xcdebugger
-/torrent/.build
-torrent.xcodeproj
+.build
 xcuserdata/
 DerivedData/
 .swiftpm/*
 .netrc
-torrent.xcodeproj
+*.xcodeproj
 .vscode/*
 
