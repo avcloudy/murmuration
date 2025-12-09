@@ -9,4 +9,5 @@ DerivedData/
 .swiftpm/*
 .netrc
 torrent.xcodeproj
+.vscode/*
 
