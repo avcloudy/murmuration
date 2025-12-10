@@ -2,100 +2,63 @@ import Testing
 
 @testable import torrent
 
-class BencodeDecodeTests {
-  @Test func decodeString() {
-    let bencodedString = "17:This is a string!4:eggs"
-    let decoded = try? decode(data: bencodedString)
-    guard case .string(let value) = decoded else { fatalError("Expected a string") }
-    #expect(value == "This is a string!")
-  }
-  @Test func decodeStringEndEarly() {
-    let bencodedString = "16:This is a string!4:eggs"
-    let decoded = try? decode(data: bencodedString)
-    guard case .string(let value) = decoded else { fatalError("Expected a string") }
-    #expect(value == "This is a string")
-  }
-  @Test func decodeInt() {
-    let bencodedInt = "i14e"
-    let decoded = try? decode(data: bencodedInt)
-    guard case .int(let value) = decoded else { fatalError("Expected an Int") }
-    #expect(value == 14)
-  }
-  @Test func decodeList() {
-    let bencodedList = "ll5:green4:eggs3:and3:hamel6:second4:list4:testee"
-    let decoded = try? decode(data: bencodedList)
-    guard case .list(let value) = decoded else { fatalError("Expected a list") }
-    #expect(
-      value == [
-        .list([.string("green"), .string("eggs"), .string("and"), .string("ham")]),
-        .list([.string("second"), .string("list"), .string("test")]),
-      ])
-  }
-  @Test func decodeListEmpty() {
-    let bencodedList = "le"
-    let decoded = try? decode(data: bencodedList)
-    guard case .list(let value) = decoded else { fatalError("Expected a list") }
-    #expect(value == [])
-  }
-  @Test func decodeDeepRecursion() {
-    let bencodedList = "lllll4:deep9:primitive9:recursioneeeee"
-    let decoded = try? decode(data: bencodedList)
-    guard case .list(let value) = decoded else { fatalError("Expected a list") }
-    #expect(
-      value == [
-        .list([
-          .list([.list([.list([.string("deep"), .string("primitive"), .string("recursion")])])])
-        ])
-      ])
-  }
-  @Test func decodeDict() {
-    let bencodedDict = "d4:spam4:eggs5:monty4:hall4:fuck6:horsese"
-    let decoded = try? decode(data: bencodedDict)
-    guard case .dict(let value) = decoded else { fatalError("Expected a dictionary") }
-    #expect(
-      value == [
-        .string("spam"): .string("eggs"), .string("monty"): .string("hall"),
-        .string("fuck"): .string("horses"),
-      ])
-  }
-  @Test func decodeDictEmpty() {
-    let bencodedDict = "de"
-    let decoded = try? decode(data: bencodedDict)
-    guard case .dict(let value) = decoded else { fatalError("Expected a dictionary") }
-    #expect(value == [:])
-  }
-}
+class TorrentReadTests {
+    let torrent = Torrent(path: "/Users/cloudy/Downloads/ubuntu-25.10-desktop-amd64.iso.torrent")
 
-class BencodeEncodeTests {
-  @Test func encodeString() {
-    let testString = "This is a string!"
-    guard let encodedString = try? encode(data: testString) else {
-      fatalError("How have you fucked up a string.")
+    @Test
+    func announceName() {
+        let torrentDict = torrent!.getValues()
+        #expect(torrentDict["announce"] as? String == "https://torrent.ubuntu.com/announce")
     }
-    #expect(encodedString == "17:This is a string!")
-  }
-  @Test func encodeInt() {
-    let testInt = 42
-    guard let encodedInt = try? encode(data: testInt) else {
-      fatalError("How have you fucked up an int.")
+
+    @Test
+    func announceList() {
+        let torrentDict = torrent!.getValues()
+        #expect(
+            torrentDict["announceList"] as? [String] == [
+                "https://torrent.ubuntu.com/announce", "https://ipv6.torrent.ubuntu.com/announce",
+            ])
     }
-    #expect(encodedInt == "i42e")
-  }
-  @Test func encodeList() {
-    let testList: [Any] = ["surface", "level", "list", ["nested", "list"]]
-    guard let encodedList = try? encode(data: testList) else {
-      fatalError("Yeah okay this one is reasonable though")
+
+    @Test
+    func comment() {
+        let torrentDict = torrent!.getValues()
+        #expect(torrentDict["comment"] as? String == "Ubuntu CD releases.ubuntu.com")
     }
-    #expect(encodedList == "l7:surface5:level4:listl6:nested4:listee")
-  }
-  // TODO: dictionary encoder has to be sorted - keys ordered alphabetically in the bencode result
-  @Test func encodeDict() {
-    let testDict: [String: Any] = ["surface": "dictionary", "nested": ["dictionary": "here"]]
-    guard let encodedDict = try? encode(data: testDict) else {
-      fatalError("I would be more surprised if this actually worked first try")
+
+    @Test
+    func creationDate() {
+        let torrentDict = torrent!.getValues()
+        #expect(torrentDict["creationDate"] as? Int == 1_759_993_240)
     }
-    #expect(encodedDict == "d7:surface10:dictionary6:nestedd10:dictionary4:hereee")
-  }
+
+    @Test
+    func createdBy() {
+        let torrentDict = torrent!.getValues()
+        #expect(torrentDict["createdBy"] as? String == "")
+    }
+
+    @Test
+    func length() {
+        let torrentDict = torrent!.getValues()
+        #expect(torrentDict["length"] as? Int == 5_702_520_832)
+    }
+
+    @Test
+    func name() {
+        let torrentDict = torrent!.getValues()
+        #expect(torrentDict["name"] as? String == "ubuntu-25.10-desktop-amd64.iso")
+    }
+
+    @Test
+    func pieceLength() {
+        let torrentDict = torrent!.getValues()
+        #expect(torrentDict["pieceLength"] as? Int == 262144)
+    }
+
+    @Test
+    func isPrivate() {
+        let torrentDict = torrent!.getValues()
+        #expect(torrentDict["private"] as? Bool == false)
+    }
 }
-// d6:nestedd10:dictionary4:heree7:surface10:dictionarye
-// this is the sorted dictionary that the above function should return

@@ -13,13 +13,9 @@ public class Torrent {
     let isPrivate: Bool?
 
     public init?(path: String) {
-        //        let url = URL(fileURLWithPath: "/Users/cloudy/Downloads/ubuntu-25.10-desktop-amd64.iso.torrent")
-        let fileData =
-            (try? Data(
-                contentsOf: URL(
-                    fileURLWithPath:
-                        "/Users/cloudy/Downloads/ubuntu-25.10-desktop-amd64.iso.torrent")))
-            ?? Data()
+        // read torrent file
+        let url = URL(fileURLWithPath: path)
+        let fileData = (try? Data(contentsOf: url)) ?? Data()
 
         // Decode bencode binary
         guard let decoded = try? decode(data: fileData),
@@ -28,6 +24,7 @@ public class Torrent {
             return nil
         }
 
+        // Check if dictionary values exist, cast them as the appropriate types, and assign
         if let announceData = dict["announce"] as? Data,
             let announceString = String(data: announceData, encoding: .utf8)
         {
@@ -78,6 +75,9 @@ public class Torrent {
         self.isPrivate = infoDict["private"] as? Bool
     }
 
+    /// Get dictionary of values of torrent file
+    /// - Returns: Dictionary.
+    /// For debugging and later to be used in encode to create bencoded torrent binary streams
     public func getValues() -> [String: Any] {
         return [
             "announce": announce,

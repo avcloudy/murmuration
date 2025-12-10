@@ -15,15 +15,18 @@ enum bencodeError: Error {
     case dictKeyNotStringWalker
 }
 
+/// Public facing decode function
+/// - Parameter data: Contents of .torrent file loaded as Data
+///         let fileData = (try? Data(contentsOf: URL(fileURLWithPath: <file/path.torrent>))) ?? Data()
+/// - Throws: Passes on thrown errors from helper functions
+/// - Returns: Bencode object from bencode.swift.
 public func decode(data: Data) throws -> bencode {
     let root = try dechunk(data: data, index: 0).0
     return root
 }
 
 // MARK: - Helper functions for decode(data: String)
-
 private func dechunk(data: Data, index: Int) throws -> (bencode, Int) {
-    let inNumberRange: ClosedRange<UInt8> = 48...57  // '0'...'9'
     // check we aren't at the end of the array, and if we have reached the second last entry and
     // are callign dechunk, must be malformed stream (effectively empty)
     guard index < data.count else { throw bencodeError.streamEmpty }
@@ -46,7 +49,7 @@ private func decodeString(data: Data, index: Int) throws -> (bencode, Int) {
     var index = index
     // bencode string starts with an int, length of the string, then a colon, then the string
     // 24:this is a bencode string
-    // so grab the int characters and when nextCharacter not int check is colon
+    // so grab the int characters and when next character not int check is colon
     var stringLength = ""
     while index < data.count, data[index] >= 48, data[index] <= 57 {  // "0"..."9"
         stringLength.append(Character(UnicodeScalar(data[index])))
@@ -134,6 +137,14 @@ private func decodeDict(data: Data, index: Int) throws -> (bencode, Int) {
 }
 
 // MARK: - Walker function for recursive extraction of lists and dictionaries
+/// Public facing recursive interpretation of Bencode object
+/// - Parameter bencodedObject: Any Bencode object returned by decode or helper functions
+/// - Typical usage: pass in a dictionary to extract values:
+/// guard let decoded = try? decode(data: fileData),
+///     let dict = try? walker(bencodedObject: decoded) as? [String: Any]
+/// else { return nil }
+/// - Throws: Errors if dictionary key is not a string, and passes up thrown errors.
+/// - Returns: Extracted bencode objects -> strings are Data and need to be cast to String to be human readable (necessary because pieces is not castable to String)
 public func walker(bencodedObject: bencode) throws -> Any {
     switch bencodedObject {
     case .string(let s): return s
