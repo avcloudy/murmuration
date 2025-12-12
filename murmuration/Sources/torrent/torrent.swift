@@ -47,7 +47,7 @@ public class Torrent {
             self.comment = nil
         }
 
-        if let createdByData = dict["Created By"] as? Data {
+        if let createdByData = dict["created by"] as? Data {
             self.createdBy = String(data: createdByData, encoding: .utf8)
         } else {
             self.createdBy = nil

@@ -35,7 +35,7 @@ class TorrentReadTests {
     @Test
     func createdBy() {
         let torrentDict = torrent!.getValues()
-        #expect(torrentDict["createdBy"] as? String == "")
+        #expect(torrentDict["createdBy"] as? String == "mktorrent 1.1")
     }
 
     @Test
