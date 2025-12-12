@@ -15,3 +15,4 @@ if let torrent = Torrent(path: "~/Downloads/testtorrents/lots-of-numbers.torrent
     print(torrent.getValues())
 } else {
     print("❌ Failed to create torrent")
+}
