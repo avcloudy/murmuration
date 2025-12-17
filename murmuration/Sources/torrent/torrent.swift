@@ -1,16 +1,22 @@
 import Foundation
 
+public enum TorrentResources {
+    public static let bundle: Bundle = .module
+}
+
 public class Torrent {
     let announce: String
     let announceList: [String]?
     let comment: String?
     let creationDate: Int?
     let createdBy: String?
-    let length: Int
+    let length: Int?
     let name: String
     let pieceLength: Int
     let pieces: Data
     let isPrivate: Bool?
+    let files: [[String: Any]]?
+    let encoding: String?
 
     public init?(path: String) {
         // read torrent file
@@ -23,6 +29,9 @@ public class Torrent {
         else {
             return nil
         }
+
+        // testing returns
+        // print(dict)
 
         // Check if dictionary values exist, cast them as the appropriate types, and assign
         if let announceData = dict["announce"] as? Data,
@@ -57,7 +66,7 @@ public class Torrent {
 
         guard let infoDict = dict["info"] as? [String: Any] else { return nil }
 
-        self.length = infoDict["length"] as? Int ?? 0
+        self.length = infoDict["length"] as? Int ?? nil
 
         if let nameData = infoDict["name"] as? Data {
             self.name = String(data: nameData, encoding: .utf8) ?? ""
@@ -73,6 +82,33 @@ public class Torrent {
             self.pieces = Data()
         }
         self.isPrivate = infoDict["private"] as? Bool
+
+        if let filesList = infoDict["files"] as? [[String: Any]] {
+            self.files = filesList.map { fileDict in
+
+                var fileInfo: [String: Any] = [:]
+
+                // length
+                if let length = fileDict["length"] as? Int {
+                    fileInfo["length"] = length
+                }
+
+                // path: array of Data -> array of String
+                if let pathArray = fileDict["path"] as? [Data] {
+                    fileInfo["path"] = pathArray.compactMap { String(data: $0, encoding: .utf8) }
+                }
+
+                return fileInfo
+            }
+        } else {
+            self.files = nil
+        }
+
+        if let encoding = dict["encoding"] as? Data {
+            self.encoding = String(data: encoding, encoding: .utf8)
+        } else {
+            self.encoding = nil
+        }
     }
 
     /// Get dictionary of values of torrent file
@@ -85,10 +121,12 @@ public class Torrent {
             "comment": comment ?? "",
             "creationDate": creationDate ?? 0,
             "createdBy": createdBy ?? "",
-            "length": length,
+            "length": length ?? 0,
             "name": name,
             "pieceLength": pieceLength,
             "private": isPrivate ?? false,
+            "files": files ?? [],
+            "encoding": encoding ?? "",
         ]
     }
 }
