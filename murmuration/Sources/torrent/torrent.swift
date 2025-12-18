@@ -1,16 +1,16 @@
 import Foundation
 
 public class Torrent {
-    let announce: String
-    let announceList: [String]?
-    let comment: String?
-    let creationDate: Int?
-    let createdBy: String?
-    let length: Int
-    let name: String
-    let pieceLength: Int
-    let pieces: Data
-    let isPrivate: Bool?
+    public let announce: String
+    public let announceList: [String]?
+    public let comment: String?
+    public let creationDate: Int?
+    public let createdBy: String?
+    public let length: Int
+    public let name: String
+    public let pieceLength: Int
+    public let pieces: Data
+    public let isPrivate: Bool?
 
     public init?(path: String) {
         // read torrent file
