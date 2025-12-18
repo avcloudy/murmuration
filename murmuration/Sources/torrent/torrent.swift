@@ -13,7 +13,7 @@ public class Torrent {
     let length: Int?
     let name: String
     let pieceLength: Int
-    let pieces: Data
+    public let pieces: Data
     let isPrivate: Bool?
     let files: [[String: Any]]?
     let encoding: String?
@@ -128,5 +128,26 @@ public class Torrent {
             "files": files ?? [],
             "encoding": encoding ?? "",
         ]
+    }
+
+    public func getOptionalValues() -> [String: Any] {
+        var result: [String: Any] = [:]
+        var infoDict: [String: Any] = [
+            "name": name,
+            "piece length": pieceLength,
+            "pieces": pieces,
+        ]
+        if !announce.isEmpty { result["announce"] = announce }
+        if let filesNotNil = files { infoDict["files"] = filesNotNil }
+        if let announceListNotNil = announceList { result["announce-list"] = announceListNotNil }
+        if let commentNotNil = comment { result["comment"] = commentNotNil }
+        if let creationDateNotNil = creationDate { result["creation date"] = creationDateNotNil }
+        if let createdByNotNil = createdBy { result["created by"] = createdByNotNil }
+        if let lengthNotNil = length { infoDict["length"] = lengthNotNil }
+        if let isPrivateNotNil = isPrivate { infoDict["private"] = isPrivateNotNil }
+        if let encodingNotNil = encoding { result["encoding"] = encodingNotNil }
+        result["info"] = infoDict
+        //        result["info"] = ["pieces": 1, "length": 2]
+        return result
     }
 }

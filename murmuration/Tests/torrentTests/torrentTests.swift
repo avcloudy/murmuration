@@ -88,9 +88,46 @@ class TorrentReadTests {
     }
 }
 
+class TorrentEncodeTest {
+
+    func getTorrent() -> String {
+        guard
+            let torrentURL = TorrentResources.bundle.url(
+                forResource: "lots-of-numbers",
+                withExtension: "torrent",
+                subdirectory: "Resources")
+        else {
+            return ""
+        }
+        return torrentURL.path
+    }
+
+    func getFile() -> URL {
+        guard
+            let torrentURL = TorrentResources.bundle.url(
+                forResource: "lots-of-numbers",
+                withExtension: "torrent",
+                subdirectory: "Resources")
+        else {
+            return URL(string: "")!
+        }
+        return torrentURL
+    }
+
+    @Test
+    func OutputEquivalentToInput() throws {
+        let torrent = Torrent(path: getTorrent())
+        let rawDict = torrent?.getOptionalValues()
+        let bencodeComp = try encode(data: rawDict!)
+        let torrentFileData = try Data(contentsOf: getFile())
+        #expect(bencodeComp == torrentFileData)
+    }
+}
+
 class MultiFileTorrents {
     class LotsOfNumbersTorrent {
-        // testing im actually getting the correct values out of the test torrents of course, but side benefit is that im figuring out how to usefully extract the damn values
+        // testing im actually getting the correct values out of the test torrents of course, but side benefit is that im
+        // figuring out how to usefully extract the damn values
         func getTorrent() -> String {
             guard
                 let torrentURL = TorrentResources.bundle.url(

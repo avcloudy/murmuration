@@ -29,18 +29,26 @@ if let torrent = Torrent(path: torrentURL?.path ?? "") {
     print("✅ lots-of-numbers.torrent Torrent created")
     let torrentfiles = torrent.getValues()["files"] as? [[String: Any]]
     //    let firstpath = torrentfiles?[0]["path"] as? [String]
-    let firstlist = (torrentfiles?[0])
-    let firstpath = firstlist?["path"]
-    print(firstlist!)
-    print(firstpath!)
+    //    let firstlist = (torrentfiles?[0])
+    //    let firstpath = firstlist?["path"]
+    //    print(firstlist!)
+    //    print(firstpath!)
+    //    let rawDict = try encode(data: torrent.getValues())
+    //    print(rawDict)
+    //    print(type(of: rawDict))
+    let rawDict = torrent.getOptionalValues()
+    let bencodeComp = try encode(data: rawDict)
+    print(rawDict)
+    let text = String(decoding: bencodeComp, as: UTF8.self)
+    print(text)
 } else {
     print("❌ Failed to create torrent")
 }
 
 // for debugging
 // print out all resources in TorrentResources
-for resource in TorrentResources.bundle.urls(
-    forResourcesWithExtension: "torrent", subdirectory: nil) ?? []
-{
-    print("Found resource: \(resource.lastPathComponent)")
-}
+//for resource in TorrentResources.bundle.urls(
+//    forResourcesWithExtension: "torrent", subdirectory: nil) ?? []
+//{
+//    print("Found resource: \(resource.lastPathComponent)")
+//}
