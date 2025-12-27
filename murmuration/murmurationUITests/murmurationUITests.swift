@@ -1,10 +1,3 @@
-//
-//  murmurationUITests.swift
-//  murmurationUITests
-//
-//  Created by Tyler Hall on 27/12/2025.
-//
-
 import XCTest
 
 final class murmurationUITests: XCTestCase {
@@ -27,8 +20,16 @@ final class murmurationUITests: XCTestCase {
     // UI tests must launch the application that they test.
     let app = XCUIApplication()
     app.launch()
+    app.activate()
+    let window = app.windows.element(boundBy: 0)
+    XCTAssertTrue(window.waitForExistence(timeout: 5), "The main window failed to launch.")
+    let toggle = window.toolbars.checkBoxes["ControlBarToggle"]
+    XCTAssertTrue(toggle.exists, "The toolbar toggle was not found.")
+    toggle.click()
+    let controlBar = window.descendants(matching: .any)["ControlBarIdentifier"]
 
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    let exists = controlBar.waitForExistence(timeout: 3)
+    XCTAssertTrue(exists, "Control bar should be visible after toggling.")
   }
 
   @MainActor

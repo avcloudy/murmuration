@@ -1,10 +1,3 @@
-//
-//  Torrent.swift
-//  murmuration
-//
-//  Created by Tyler Hall on 27/12/2025.
-//
-
 import SwiftUI
 
 struct Torrent: View {

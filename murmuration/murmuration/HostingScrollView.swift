@@ -1,5 +1,6 @@
 import SwiftUI
 
+// custom list view to allow scrolling into titlebar
 struct HostingScrollView<Content: View>: NSViewRepresentable {
 
   let content: Content
@@ -24,13 +25,10 @@ struct HostingScrollView<Content: View>: NSViewRepresentable {
 
     scrollView.documentView = hostingView
 
-    // ✅ Correct constraints
     NSLayoutConstraint.activate([
       hostingView.leadingAnchor.constraint(equalTo: clipView.leadingAnchor),
       hostingView.trailingAnchor.constraint(equalTo: clipView.trailingAnchor),
       hostingView.topAnchor.constraint(equalTo: clipView.topAnchor),
-
-      // ❗️NO bottom constraint
       hostingView.widthAnchor.constraint(equalTo: clipView.widthAnchor),
     ])
 

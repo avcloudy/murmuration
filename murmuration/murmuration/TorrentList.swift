@@ -1,12 +1,7 @@
-//
-//  TorrentList.swift
-//  murmuration
-//
-//  Created by Tyler Hall on 27/12/2025.
-//
-
 import SwiftUI
 
+// TODO: Need to do some thinking about this
+// for instance, need to preserve alternating colours
 struct TorrentList: View {
 
   @Binding var selectedTorrent: Int?
@@ -17,8 +12,10 @@ struct TorrentList: View {
         Torrent(index: index)
           .background(
             selectedTorrent == index
-              ? Color.accentColor.opacity(0.15)
-              : Color.clear
+              ? Color.accentColor.opacity(0.25)
+              : index % 2 == 0
+                ? Color.gray.opacity(0.05)
+                : Color.gray.opacity(0.15)
           )
           .contentShape(Rectangle())
           .onTapGesture {
