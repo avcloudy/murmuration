@@ -13,5 +13,7 @@ struct murmurationApp: App {
     WindowGroup {
       ContentView()
     }
+    .windowToolbarStyle(.unified)
+
   }
 }
