@@ -1,13 +1,6 @@
-//
-//  murmurationUITestsLaunchTests.swift
-//  murmurationUITests
-//
-//  Created by Tyler Hall on 27/12/2025.
-//
-
 import XCTest
 
-final class murmurationUITestsLaunchTests: XCTestCase {
+final class MurmurationUITestsLaunchTests: XCTestCase {
 
   override class var runsForEachTargetApplicationUIConfiguration: Bool {
     true

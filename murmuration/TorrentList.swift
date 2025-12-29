@@ -30,6 +30,10 @@ struct TorrentList: View {
             selectedTorrent = index
           }
       }
+      .onDelete { _ in
+        // Dummy: show swipe delete, but do nothing
+        print("Delete action triggered")
+      }
     }
     .frame(maxWidth: .infinity)
 

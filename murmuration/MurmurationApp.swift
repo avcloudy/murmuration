@@ -4,7 +4,7 @@ import SwiftUI
 struct MurmurationApp: App {
   var body: some Scene {
     WindowGroup {
-      SwiftView()
+      MainWindowView()
     }
     .windowToolbarStyle(.unified)
   }

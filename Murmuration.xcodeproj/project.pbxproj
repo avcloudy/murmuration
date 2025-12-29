@@ -7,62 +7,62 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		5190D5642EFFB648005A77A2 /* PBXContainerItemProxy */ = {
+		51F3A1EF2F0255AA007A7334 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5190D54E2EFFB647005A77A2 /* Project object */;
+			containerPortal = 51F3A1D92F0255A9007A7334 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5190D5552EFFB647005A77A2;
-			remoteInfo = murmuration;
+			remoteGlobalIDString = 51F3A1E02F0255A9007A7334;
+			remoteInfo = Murmuration;
 		};
-		5190D56E2EFFB648005A77A2 /* PBXContainerItemProxy */ = {
+		51F3A1F92F0255AA007A7334 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5190D54E2EFFB647005A77A2 /* Project object */;
+			containerPortal = 51F3A1D92F0255A9007A7334 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5190D5552EFFB647005A77A2;
-			remoteInfo = murmuration;
+			remoteGlobalIDString = 51F3A1E02F0255A9007A7334;
+			remoteInfo = Murmuration;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5190D5562EFFB647005A77A2 /* murmuration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = murmuration.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5190D5632EFFB648005A77A2 /* murmurationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = murmurationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5190D56D2EFFB648005A77A2 /* murmurationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = murmurationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51F3A1E12F0255A9007A7334 /* Murmuration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Murmuration.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51F3A1EE2F0255AA007A7334 /* MurmurationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MurmurationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51F3A1F82F0255AA007A7334 /* MurmurationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MurmurationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5190D5582EFFB647005A77A2 /* murmuration */ = {
+		51F3A1E32F0255A9007A7334 /* Murmuration */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = murmuration;
+			path = Murmuration;
 			sourceTree = "<group>";
 		};
-		5190D5662EFFB648005A77A2 /* murmurationTests */ = {
+		51F3A1F12F0255AA007A7334 /* MurmurationTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = murmurationTests;
+			path = MurmurationTests;
 			sourceTree = "<group>";
 		};
-		5190D5702EFFB648005A77A2 /* murmurationUITests */ = {
+		51F3A1FB2F0255AA007A7334 /* MurmurationUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = murmurationUITests;
+			path = MurmurationUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5190D5532EFFB647005A77A2 /* Frameworks */ = {
+		51F3A1DE2F0255A9007A7334 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5190D5602EFFB648005A77A2 /* Frameworks */ = {
+		51F3A1EB2F0255AA007A7334 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5190D56A2EFFB648005A77A2 /* Frameworks */ = {
+		51F3A1F52F0255AA007A7334 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5190D54D2EFFB647005A77A2 = {
+		51F3A1D82F0255A9007A7334 = {
 			isa = PBXGroup;
 			children = (
-				5190D5582EFFB647005A77A2 /* murmuration */,
-				5190D5662EFFB648005A77A2 /* murmurationTests */,
-				5190D5702EFFB648005A77A2 /* murmurationUITests */,
-				5190D5572EFFB647005A77A2 /* Products */,
+				51F3A1E32F0255A9007A7334 /* Murmuration */,
+				51F3A1F12F0255AA007A7334 /* MurmurationTests */,
+				51F3A1FB2F0255AA007A7334 /* MurmurationUITests */,
+				51F3A1E22F0255A9007A7334 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5190D5572EFFB647005A77A2 /* Products */ = {
+		51F3A1E22F0255A9007A7334 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5190D5562EFFB647005A77A2 /* murmuration.app */,
-				5190D5632EFFB648005A77A2 /* murmurationTests.xctest */,
-				5190D56D2EFFB648005A77A2 /* murmurationUITests.xctest */,
+				51F3A1E12F0255A9007A7334 /* Murmuration.app */,
+				51F3A1EE2F0255AA007A7334 /* MurmurationTests.xctest */,
+				51F3A1F82F0255AA007A7334 /* MurmurationUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,134 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5190D5552EFFB647005A77A2 /* murmuration */ = {
+		51F3A1E02F0255A9007A7334 /* Murmuration */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5190D5772EFFB648005A77A2 /* Build configuration list for PBXNativeTarget "murmuration" */;
+			buildConfigurationList = 51F3A2022F0255AA007A7334 /* Build configuration list for PBXNativeTarget "Murmuration" */;
 			buildPhases = (
-				5190D5522EFFB647005A77A2 /* Sources */,
-				5190D5532EFFB647005A77A2 /* Frameworks */,
-				5190D5542EFFB647005A77A2 /* Resources */,
+				51F3A1DD2F0255A9007A7334 /* Sources */,
+				51F3A1DE2F0255A9007A7334 /* Frameworks */,
+				51F3A1DF2F0255A9007A7334 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5190D5582EFFB647005A77A2 /* murmuration */,
+				51F3A1E32F0255A9007A7334 /* Murmuration */,
 			);
-			name = murmuration;
+			name = Murmuration;
 			packageProductDependencies = (
 			);
-			productName = murmuration;
-			productReference = 5190D5562EFFB647005A77A2 /* murmuration.app */;
+			productName = Murmuration;
+			productReference = 51F3A1E12F0255A9007A7334 /* Murmuration.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5190D5622EFFB648005A77A2 /* murmurationTests */ = {
+		51F3A1ED2F0255AA007A7334 /* MurmurationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5190D57A2EFFB648005A77A2 /* Build configuration list for PBXNativeTarget "murmurationTests" */;
+			buildConfigurationList = 51F3A2052F0255AA007A7334 /* Build configuration list for PBXNativeTarget "MurmurationTests" */;
 			buildPhases = (
-				5190D55F2EFFB648005A77A2 /* Sources */,
-				5190D5602EFFB648005A77A2 /* Frameworks */,
-				5190D5612EFFB648005A77A2 /* Resources */,
+				51F3A1EA2F0255AA007A7334 /* Sources */,
+				51F3A1EB2F0255AA007A7334 /* Frameworks */,
+				51F3A1EC2F0255AA007A7334 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5190D5652EFFB648005A77A2 /* PBXTargetDependency */,
+				51F3A1F02F0255AA007A7334 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5190D5662EFFB648005A77A2 /* murmurationTests */,
+				51F3A1F12F0255AA007A7334 /* MurmurationTests */,
 			);
-			name = murmurationTests;
+			name = MurmurationTests;
 			packageProductDependencies = (
 			);
-			productName = murmurationTests;
-			productReference = 5190D5632EFFB648005A77A2 /* murmurationTests.xctest */;
+			productName = MurmurationTests;
+			productReference = 51F3A1EE2F0255AA007A7334 /* MurmurationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5190D56C2EFFB648005A77A2 /* murmurationUITests */ = {
+		51F3A1F72F0255AA007A7334 /* MurmurationUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5190D57D2EFFB648005A77A2 /* Build configuration list for PBXNativeTarget "murmurationUITests" */;
+			buildConfigurationList = 51F3A2082F0255AA007A7334 /* Build configuration list for PBXNativeTarget "MurmurationUITests" */;
 			buildPhases = (
-				5190D5692EFFB648005A77A2 /* Sources */,
-				5190D56A2EFFB648005A77A2 /* Frameworks */,
-				5190D56B2EFFB648005A77A2 /* Resources */,
+				51F3A1F42F0255AA007A7334 /* Sources */,
+				51F3A1F52F0255AA007A7334 /* Frameworks */,
+				51F3A1F62F0255AA007A7334 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5190D56F2EFFB648005A77A2 /* PBXTargetDependency */,
+				51F3A1FA2F0255AA007A7334 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5190D5702EFFB648005A77A2 /* murmurationUITests */,
+				51F3A1FB2F0255AA007A7334 /* MurmurationUITests */,
 			);
-			name = murmurationUITests;
+			name = MurmurationUITests;
 			packageProductDependencies = (
 			);
-			productName = murmurationUITests;
-			productReference = 5190D56D2EFFB648005A77A2 /* murmurationUITests.xctest */;
+			productName = MurmurationUITests;
+			productReference = 51F3A1F82F0255AA007A7334 /* MurmurationUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5190D54E2EFFB647005A77A2 /* Project object */ = {
+		51F3A1D92F0255A9007A7334 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2610;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
-					5190D5552EFFB647005A77A2 = {
-						CreatedOnToolsVersion = 26.1.1;
+					51F3A1E02F0255A9007A7334 = {
+						CreatedOnToolsVersion = 26.2;
 					};
-					5190D5622EFFB648005A77A2 = {
-						CreatedOnToolsVersion = 26.1.1;
-						TestTargetID = 5190D5552EFFB647005A77A2;
+					51F3A1ED2F0255AA007A7334 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 51F3A1E02F0255A9007A7334;
 					};
-					5190D56C2EFFB648005A77A2 = {
-						CreatedOnToolsVersion = 26.1.1;
-						TestTargetID = 5190D5552EFFB647005A77A2;
+					51F3A1F72F0255AA007A7334 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 51F3A1E02F0255A9007A7334;
 					};
 				};
 			};
-			buildConfigurationList = 5190D5512EFFB647005A77A2 /* Build configuration list for PBXProject "murmuration" */;
+			buildConfigurationList = 51F3A1DC2F0255A9007A7334 /* Build configuration list for PBXProject "Murmuration" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 5190D54D2EFFB647005A77A2;
+			mainGroup = 51F3A1D82F0255A9007A7334;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5190D5572EFFB647005A77A2 /* Products */;
+			productRefGroup = 51F3A1E22F0255A9007A7334 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5190D5552EFFB647005A77A2 /* murmuration */,
-				5190D5622EFFB648005A77A2 /* murmurationTests */,
-				5190D56C2EFFB648005A77A2 /* murmurationUITests */,
+				51F3A1E02F0255A9007A7334 /* Murmuration */,
+				51F3A1ED2F0255AA007A7334 /* MurmurationTests */,
+				51F3A1F72F0255AA007A7334 /* MurmurationUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5190D5542EFFB647005A77A2 /* Resources */ = {
+		51F3A1DF2F0255A9007A7334 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5190D5612EFFB648005A77A2 /* Resources */ = {
+		51F3A1EC2F0255AA007A7334 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5190D56B2EFFB648005A77A2 /* Resources */ = {
+		51F3A1F62F0255AA007A7334 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5190D5522EFFB647005A77A2 /* Sources */ = {
+		51F3A1DD2F0255A9007A7334 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5190D55F2EFFB648005A77A2 /* Sources */ = {
+		51F3A1EA2F0255AA007A7334 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5190D5692EFFB648005A77A2 /* Sources */ = {
+		51F3A1F42F0255AA007A7334 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5190D5652EFFB648005A77A2 /* PBXTargetDependency */ = {
+		51F3A1F02F0255AA007A7334 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5190D5552EFFB647005A77A2 /* murmuration */;
-			targetProxy = 5190D5642EFFB648005A77A2 /* PBXContainerItemProxy */;
+			target = 51F3A1E02F0255A9007A7334 /* Murmuration */;
+			targetProxy = 51F3A1EF2F0255AA007A7334 /* PBXContainerItemProxy */;
 		};
-		5190D56F2EFFB648005A77A2 /* PBXTargetDependency */ = {
+		51F3A1FA2F0255AA007A7334 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5190D5552EFFB647005A77A2 /* murmuration */;
-			targetProxy = 5190D56E2EFFB648005A77A2 /* PBXContainerItemProxy */;
+			target = 51F3A1E02F0255A9007A7334 /* Murmuration */;
+			targetProxy = 51F3A1F92F0255AA007A7334 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5190D5752EFFB648005A77A2 /* Debug */ = {
+		51F3A2002F0255AA007A7334 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -333,7 +333,7 @@
 			};
 			name = Debug;
 		};
-		5190D5762EFFB648005A77A2 /* Release */ = {
+		51F3A2012F0255AA007A7334 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -389,7 +389,7 @@
 			};
 			name = Release;
 		};
-		5190D5782EFFB648005A77A2 /* Debug */ = {
+		51F3A2032F0255AA007A7334 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -409,7 +409,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cloudy.murmuration;
+				PRODUCT_BUNDLE_IDENTIFIER = cloudy.Murmuration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -421,7 +421,7 @@
 			};
 			name = Debug;
 		};
-		5190D5792EFFB648005A77A2 /* Release */ = {
+		51F3A2042F0255AA007A7334 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -441,7 +441,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cloudy.murmuration;
+				PRODUCT_BUNDLE_IDENTIFIER = cloudy.Murmuration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -453,7 +453,7 @@
 			};
 			name = Release;
 		};
-		5190D57B2EFFB648005A77A2 /* Debug */ = {
+		51F3A2062F0255AA007A7334 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -463,18 +463,18 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cloudy.murmurationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = cloudy.MurmurationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/murmuration.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/murmuration";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Murmuration.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Murmuration";
 			};
 			name = Debug;
 		};
-		5190D57C2EFFB648005A77A2 /* Release */ = {
+		51F3A2072F0255AA007A7334 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,18 +484,18 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cloudy.murmurationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = cloudy.MurmurationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/murmuration.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/murmuration";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Murmuration.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Murmuration";
 			};
 			name = Release;
 		};
-		5190D57E2EFFB648005A77A2 /* Debug */ = {
+		51F3A2092F0255AA007A7334 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -503,18 +503,18 @@
 				DEVELOPMENT_TEAM = 9PN6TH738Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cloudy.murmurationUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = cloudy.MurmurationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = murmuration;
+				TEST_TARGET_NAME = Murmuration;
 			};
 			name = Debug;
 		};
-		5190D57F2EFFB648005A77A2 /* Release */ = {
+		51F3A20A2F0255AA007A7334 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -522,57 +522,57 @@
 				DEVELOPMENT_TEAM = 9PN6TH738Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cloudy.murmurationUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = cloudy.MurmurationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = murmuration;
+				TEST_TARGET_NAME = Murmuration;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5190D5512EFFB647005A77A2 /* Build configuration list for PBXProject "murmuration" */ = {
+		51F3A1DC2F0255A9007A7334 /* Build configuration list for PBXProject "Murmuration" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5190D5752EFFB648005A77A2 /* Debug */,
-				5190D5762EFFB648005A77A2 /* Release */,
+				51F3A2002F0255AA007A7334 /* Debug */,
+				51F3A2012F0255AA007A7334 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5190D5772EFFB648005A77A2 /* Build configuration list for PBXNativeTarget "murmuration" */ = {
+		51F3A2022F0255AA007A7334 /* Build configuration list for PBXNativeTarget "Murmuration" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5190D5782EFFB648005A77A2 /* Debug */,
-				5190D5792EFFB648005A77A2 /* Release */,
+				51F3A2032F0255AA007A7334 /* Debug */,
+				51F3A2042F0255AA007A7334 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5190D57A2EFFB648005A77A2 /* Build configuration list for PBXNativeTarget "murmurationTests" */ = {
+		51F3A2052F0255AA007A7334 /* Build configuration list for PBXNativeTarget "MurmurationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5190D57B2EFFB648005A77A2 /* Debug */,
-				5190D57C2EFFB648005A77A2 /* Release */,
+				51F3A2062F0255AA007A7334 /* Debug */,
+				51F3A2072F0255AA007A7334 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5190D57D2EFFB648005A77A2 /* Build configuration list for PBXNativeTarget "murmurationUITests" */ = {
+		51F3A2082F0255AA007A7334 /* Build configuration list for PBXNativeTarget "MurmurationUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5190D57E2EFFB648005A77A2 /* Debug */,
-				5190D57F2EFFB648005A77A2 /* Release */,
+				51F3A2092F0255AA007A7334 /* Debug */,
+				51F3A20A2F0255AA007A7334 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5190D54E2EFFB647005A77A2 /* Project object */;
+	rootObject = 51F3A1D92F0255A9007A7334 /* Project object */;
 }

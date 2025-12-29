@@ -3,7 +3,7 @@ import SwiftUI
 public let defaultOpacity: CGFloat = 0.35
 public let darkOpacity: CGFloat = 0.85
 
-struct SwiftView: View {
+struct MainWindowView: View {
 
   @State private var search: String = ""
   @State public var isControlBarVisible: Bool = false
@@ -11,27 +11,15 @@ struct SwiftView: View {
 
   var body: some View {
     VStack(spacing: 0) {
-      //            TorrentList()
-      //                .frame(maxWidth: .infinity)
-      //                .safeAreaInset(edge: .top) {
-      //                if isControlBarVisible {
-      //                    ControlRow()
-      //                        .background(.ultraThinMaterial.opacity(0.15))
-      //                }
-      //            }
-      //                .frame(maxWidth: .infinity)
       ZStack(alignment: .top) {
         TorrentList(isControlBarVisible: $isControlBarVisible)
           .frame(maxWidth: .infinity, maxHeight: .infinity)
-
         if isControlBarVisible {
           ControlRow()
             .id("ControlRow")
             .background(.ultraThinMaterial.opacity(0.15))
             .transition(.move(edge: .top).combined(with: .opacity))
             .zIndex(1)
-            .padding(.top, 4)
-            .animation(.easeInOut, value: isControlBarVisible)
         }
       }
     }
@@ -58,16 +46,14 @@ struct SwiftView: View {
           isOn: Binding(
             get: { isControlBarVisible },
             set: { newValue in
-              withAnimation(.easeInOut) {
-                isControlBarVisible = newValue
+              DispatchQueue.main.async {
+                withAnimation(.easeInOut(duration: 0.25)) {
+                  isControlBarVisible = newValue
+                }
               }
             }
           )
         )
-        .onChange(of: isControlBarVisible) {
-          withAnimation(.easeInOut(duration: 0.25)) {
-          }
-        }
         .toggleStyle(.button)
         .accessibilityIdentifier("ControlBarToggle")
         Spacer()
@@ -78,5 +64,5 @@ struct SwiftView: View {
 }
 
 #Preview {
-  SwiftView()
+  MainWindowView()
 }

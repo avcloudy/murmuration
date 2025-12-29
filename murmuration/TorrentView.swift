@@ -11,8 +11,6 @@ struct Torrent: View {
 
   var body: some View {
     HStack {
-      //      Spacer()
-      //      Spacer()
       Image(systemName: "text.document").font(.system(size: 30))
       Spacer()
       Spacer()
